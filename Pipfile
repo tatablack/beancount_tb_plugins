@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+beancount = "2.3.6"
+xxhash = "3.4.1"
+
+[dev-packages]
+isort = "5.13.2"
+pytest = "8.2.0"
+ruff = "0.4.3"
+
+[requires]
+python_version = "3.12"

@@ -1,0 +1,38 @@
+[project]
+name = "beancount_tatablack_plugins"
+version = "0.1.0"
+description = "A set of plugins for the Beancount plaintext accounting system"
+authors = [{ name = "Angelo Tata", email = "angelo.tata@gmail.com" }]
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = "py312"
+
+[tool.isort]
+profile = "black"
+src_paths = ["beancount_tatablack_plugins"]
+line_length = 120
+import_heading_future = "Future imports"
+import_heading_stdlib = "Standard library"
+import_heading_thirdparty = "Third party"
+import_heading_firstparty = "First party"
+import_heading_localfolder = "Local imports"
+lines_between_types = 1
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --cov=beancount_tatablack_plugins --cov-report html"
+python_functions = "it_should_*"
+pythonpath = [
+    "./beancount_tatablack_plugins"
+]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+fail_under = 90
+
+[tool.coverage.html]
+directory = "coverage_html_report"
