@@ -1,17 +1,54 @@
 [project]
-name = "beancount_tatablack_plugins"
+name = "beancount_tb_plugins"
 version = "0.1.0"
-description = "A set of plugins for the Beancount plaintext accounting system"
-authors = [{ name = "Angelo Tata", email = "angelo.tata@gmail.com" }]
+authors = [
+    { name="Angelo Tata", email="beancount.projects@tatablack.net" },
+]
+description = "A.set of plugins for the Beancount plaintext accounting system"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'License :: OSI Approved :: MIT License',
+    'Natural Language :: English',
+    "Operating System :: OS Independent",
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.10',
+    'Intended Audience :: Financial and Insurance Industry',
+    'Topic :: Office/Business :: Financial :: Accounting',
+    'Topic :: Office/Business :: Financial :: Investment',
+]
+license = "GPL-2.0-only"
+license-files = ["LICENSE"]
+dependencies = [
+    "beancount>=3.1.0",
+    "xxhash>=3.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/tatablack/beancount_tb_plugins"
+Issues = "https://github.com/tatablack/beancount_tb_plugins/issues"
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "coverage>=7.9.1",
+    "isort>=6.0.1",
+    "pytest>=8.4.1",
+    "ruff>=0.12.0",
+]
 
 [tool.ruff]
 line-length = 120
 indent-width = 4
-target-version = "py312"
+select = ["E", "F"]
 
 [tool.isort]
 profile = "black"
-src_paths = ["beancount_tatablack_plugins"]
+src_paths = ["beancount_tb_plugins"]
 line_length = 120
 import_heading_future = "Future imports"
 import_heading_stdlib = "Standard library"
@@ -21,11 +58,10 @@ import_heading_localfolder = "Local imports"
 lines_between_types = 1
 
 [tool.pytest.ini_options]
-minversion = "7.0"
-addopts = "-ra -q --cov=beancount_tatablack_plugins --cov-report html"
 python_functions = "it_should_*"
+#addopts = "-ra -q --cov=beancount_tatablack_plugins --cov-report html"
 pythonpath = [
-    "./beancount_tatablack_plugins"
+    "./beancount_tb_plugins"
 ]
 
 [tool.coverage.run]
@@ -36,3 +72,9 @@ fail_under = 90
 
 [tool.coverage.html]
 directory = "coverage_html_report"
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true

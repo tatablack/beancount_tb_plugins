@@ -1,0 +1,9 @@
+# IDE and other tooling
+.idea
+.mise.toml
+
+# Python local files
+.venv
+
+# Generated files
+coverage_html_report
